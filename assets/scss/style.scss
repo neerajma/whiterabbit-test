@@ -1,0 +1,219 @@
+// Base
+@import "base/fonts";
+@import "base/break-point";
+@import "base/color";
+@import "base/reset";
+@import "base/layout";
+@import "base/base";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+//Page
+
+.overflow {
+    overflow: hidden;
+}
+
+.sticky-soomth .treva-header {
+    background: $color-black;
+    padding: $spacer-3 0;
+}
+
+// Header
+.treva-header {
+    padding: $spacer-5 $spacer-0;
+    z-index: 10;
+    width: 100%;
+    position: absolute;
+    background: transparent;
+
+    &__logo {
+        img {
+            width: 130px;
+            height: auto;
+        }
+    }
+
+    &.sticky {
+        position: fixed;
+    }
+}
+
+@include mobile {
+    .treva-header {
+        padding: $spacer-3 $spacer-1;
+    }
+}
+
+@keyframes slide-down {
+    0% {
+        opacity: 0.5;
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Main Banner
+.treva-main-bg {
+    height: 100vh;
+    margin-bottom: 100px;
+
+    &__main {
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 80% 100%, 0 84%, 0% 50%);
+        background: linear-gradient(180deg, #03062f 0%, #180b74 100%);
+        position: relative;
+        width: 100%;
+        top: 0;
+        height: 100vh;
+        max-height: 700px;
+        padding: 80px 0;
+        z-index: 2;
+    }
+
+    &__slide-title {
+        font-size: 45px;
+        line-height: 1.2;
+        color: $color-white;
+    }
+
+    &__slide-desc {
+        font-size: 18px;
+        font-weight: 500;
+        color: $color-white-2;
+        display: inline-block;
+        margin-top: $spacer-4;
+    }
+
+    &__img {
+        img {
+            max-height: 500px;
+        }
+    }
+
+    &__element-img {
+        position: absolute;
+        bottom: -70px;
+        z-index: 1;
+        left: 90px;
+    }
+}
+
+@include mobile {
+    .treva-main-bg {
+        &__slide-title {
+            font-size: 24px;
+        }
+
+        &__slide-desc {
+            font-size: 16px;
+        }
+
+        &__img {
+            img {
+                max-height: 250px;
+                margin-top: $spacer-3;
+            }
+        }
+    }
+}
+
+
+@include tablet {
+    .treva-main-bg {
+        &__slide-title {
+            font-size: 32px;
+        }
+
+        &__slide-desc {
+            font-size: 16px;
+        }
+    }
+}
+
+//Slider Dots
+.slick-dots li button {
+    display: block;
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    border-radius: 100%;
+    background: $color-white-2;
+    text-indent: -9999px;
+    outline-offset: 3px;
+}
+
+.slick-dots li.slick-active button {
+    background-color: $color-white;
+}
+
+// Button
+.treva-btn {
+    background-color: $color-blue;
+    padding: 16px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-top: $spacer-4;
+
+    &:hover {
+        background-color: $color-blue-1;
+    }
+}
+
+@include mobile {
+    .treva-btn {
+        padding: 12px;
+    }
+}
+
+// Form
+.treva-form {
+    padding: $spacer-6 $spacer-3;
+
+    &__header {
+        text-align: center;
+        margin-bottom: $spacer-5;
+    }
+
+    &__title {
+        font-size: 40px;
+        line-height: 1.4;
+    }
+
+    &__desc {
+        font-size: 18px;
+        line-height: 1.2;
+        color: $color-grey;
+        margin-top: $spacer-2;
+    }
+
+    &__wrapper {
+        max-width: 700px;
+        width: 100%;
+        padding: $spacer-6 $spacer-5;
+        box-shadow: 0px 10px 14px 1px #0000001a;
+        border: 1px solid $color-grey-2;
+        background: $color-white;
+        border-radius: 6px;
+    }
+
+    .form-control.error~.treva-form__error {
+        display: block;
+    }
+
+    &__error {
+        color: $color-red;
+        width: 100%;
+        font-size: 14px;
+        margin-top: $spacer-1;
+        display: none;
+    }
+
+    .form-control,
+    .form-select {
+        border-color: $color-grey-3;
+        min-height: 45px;
+    }
+}
